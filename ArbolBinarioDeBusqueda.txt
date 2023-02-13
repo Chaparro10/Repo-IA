@@ -1,0 +1,131 @@
+ //agregar nodos al arbolBinario
+public class arbolBinario(){
+    NodoArbol raiz;
+    
+    public arbolBinario(){
+        raiz =null;
+    }
+    //PARA SABER SI ESTA Vacioc
+    public boolean estaVacio(){
+        return raiz==null;
+    }
+    //METODO PARA BUSCAR NODO EN arbolBinari
+    public NodoArbol buscaNodo(int dato){
+        NodoArbol auxiliar=raiz;
+        while(auxiliar.dato!=dato){
+            if(dato<auxiliar.dato){
+                auxiliar=auxiliar.hijoIzq;
+            }else{
+                auxiliar.auxiliar.hijoDer;
+            }
+            if(auxiliar==null){
+                return null;
+                
+            }
+        }
+        return auxiliar;
+    }
+    
+    //RECORRER ARBOL POST ORDEN
+    public void postOrden(NodoArbol r){
+        if(r != null){
+            postOrden(r.hijoIzq);
+            postOrden(r.hijoDer);
+            System.out.println(r.dato + ", ");
+            
+        }
+    }
+    
+    //agregar nodos al arbolBinario
+    public void agregarNodo(int dato , String nombre){
+        NodoArbol nuevo = new NodoArbol(dato,nombre);
+        if(raiz==null){
+            raiz=nuevo;
+        }else{
+            NodoArbol auxiliar =raiz;
+            NodoArbol padre;
+            while(true){
+                padre=auxiliar;
+                if(dato<auxiliar.dato){
+                    auxiliar=auxiliar.hijoIzq;
+                    if(auxiliar==null){
+                        padre.hijoIzq=nuevo;
+                        return;
+                    }
+                }else{
+                    auxiliar=auxiliar.hijoDer;
+                    if(auxiliar==null){
+                        padre.hijoDer=nuevo;
+                        return;
+                    }
+                }
+            }
+            
+        }
+    }
+} //TERMINA CLASE
+
+public class NodoArbol{
+    int dato;
+    String nombre;
+    NodoArbol hijoIzq ,hijoDer;
+    
+    public NodoArbol(int dato,String nombre){
+        this.dato=dato;
+        this.nombre=nombre;
+        this.hijoIzq=null;
+        this.hijoDer=null;
+        
+    }
+    public String toString(){
+        return nombre +"Su Dato es "+dato;
+    }
+}
+
+public class Main
+{
+    public static void main(String[] args) {
+       int opcion =0 , elemento;
+       String nombre;
+       arbolBinario arbolPrueba = new arbolBinario();
+       do{
+           try {
+               opcion=Integer.ParseInt(JOptionPane.showInputDialog(null,"1-.AGREGAR NODO \n"
+               +"2-.BUSCAR UN NODO \n"
+               +"3-.IMPRIMIR ARBOL(POST ORDEN)"));
+               switch(opcion){
+                   case 1:
+                       elemento = Integer.ParseInt(JOptionPane.showInputDialog(null,"Ingresa el numero del Nodo"))
+                        nombre = Integer.ParseInt(JOptionPane.showInputDialog(null,"Ingresa el nombre del Nodo"))
+                        arbolPrueba.agregarNodo(elemento,nombre);
+                       
+                       break;
+                       case 2:
+                           if(!arbolPrueba.estaVacio()){
+                        elemento = Integer.ParseInt(JOptionPane.showInputDialog(null,"Ingresa el numero del Nodo a buscar"))
+                         
+                         
+                          if(arbolPrueba.buscaNodo(elemento)==null)
+                             System.out.println("El Nodo no se encuentra en el arbolPrueba");
+                           }else{
+                               System.out.System.out.println("Nodo Encontrado "+ arbolPrueba.buscaNodo(elemento) );
+                           }
+                           break;
+                           case 3:
+                               if(!arbolPrueba.estaVacio){
+                                   arbolPrueba.postOrden(arbolPrueba.raiz);
+                               }else{
+                                   System.out.println("El arbol esta vacio");
+                               }
+                           
+                           break;
+                           case 4:
+                               break;
+               }
+           } catch(Exception e) {
+               System.out.print("ERROR"+ e.getMessage());
+           }
+       }while(opcion !=4)
+       
+    }
+}
