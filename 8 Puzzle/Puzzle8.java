@@ -8,13 +8,19 @@ public class Puzzle8 {
     public static void main(String[] args) {
         // Instanciar el arbol
         ArbolBusqueda a = new ArbolBusqueda(new Nodo(estadoInicial), estadoFinal);
-         Nodo nodo = new Nodo(estadoFinal);
+        
 
         // Ejecuta la busqueda
-        a.busquedaPorAnchura();
-        System.out.println("CALIS");
-        // Imprime movimientos
-        nodo.imprimeSolucion();
+        //a.busquedaPorAnchura();
+        a.busquedaPorProfundidad();
+
+
+
+
+
+
+
+        
         /*
          * Nodo n = new Nodo(estadoInicial);
          * Collection<String> c = n.generaHijos();

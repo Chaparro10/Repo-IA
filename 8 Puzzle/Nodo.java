@@ -3,194 +3,201 @@ package puzzle8;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
 public class Nodo {
-    private String estado;
-    private Collection<Nodo> hijos;
-    Nodo padre;
-    
-    public Nodo(String estado)
-    {
-        this.estado = estado;
-        hijos = new ArrayList<>();
-    }
+	private String estado;
+	private Collection<Nodo> hijos;
+	Nodo padre;
 
-    public String getEstado() {
-        return estado;
-    }
+	public Nodo(String estado) {
+		this.estado = estado;
+		hijos = new ArrayList<>();
+	}
 
-    public Collection<Nodo> getHijos() {
-        return hijos;
-    }
+	public String getEstado() {
+		return estado;
+	}
 
-    //Agrega 1 Nodo hijo
-    public void agregarHijos(Nodo h) {
-        this.hijos.add(h);
-    }
+	public Collection<Nodo> getHijos() {
+		return hijos;
+	}
 
-    public Nodo getPadre() {
-        return padre;
-    }
+	// Agrega 1 Nodo hijo
+	public void agregarHijos(Nodo h) {
+		this.hijos.add(h);
+	}
 
-    public void setPadre(Nodo padre) {
-        this.padre = padre;
-    }
+	public Nodo getPadre() {
+		return padre;
+	}
 
-    public Collection<String> generaHijos() {
-        //|0|1|2|
-        //|3|4|5|   Indices
-        //|6|7|8|
-    	ArrayList<String>hijosGenerados=new ArrayList<>();
-        int i = estado.indexOf(" ");//Obtengo el indice del espacio
-        String estadoTemp;
-        switch(i)
-        {
-        /*
-		Usar los métodos: replace, charAt
-		Otra idea es pasar el String a Matriz, hacer los cambios y luego pasarlo a String... xD		
+	public void setPadre(Nodo padre) {
+		this.padre = padre;
+	}
+
+	public Collection<String> generaHijos() {
+		// |0|1|2|
+		// |3|4|5| Indices
+		// |6|7|8|
+		ArrayList<String> hijosGenerados = new ArrayList<>();
+		int i = estado.indexOf(" ");// Obtengo el indice del espacio
+		String estadoTemp;
+		switch (i) {
+			/*
+			 * Usar los métodos: replace, charAt
+			 * Otra idea es pasar el String a Matriz, hacer los cambios y luego pasarlo a
+			 * String... xD
+			 */
+			case 0:
+
+				estadoTemp = "" + estado.charAt(1) + estado.charAt(0) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(3) + estado.charAt(1) + estado.charAt(2) + estado.charAt(0)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 1:
+				estadoTemp = "" + estado.charAt(1) + estado.charAt(0) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(2) + estado.charAt(1) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(4) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(1)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 2:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(2) + estado.charAt(1) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(5) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(2) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 3:
+				estadoTemp = "" + estado.charAt(3) + estado.charAt(1) + estado.charAt(2) + estado.charAt(0)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(4)
+						+ estado.charAt(3)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(6)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(3) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 4:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(4) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(1)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(4)
+						+ estado.charAt(3)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(5)
+						+ estado.charAt(4) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(7)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(4) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 5:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(5) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(2) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(5)
+						+ estado.charAt(4) + estado.charAt(6) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(8) + estado.charAt(6) + estado.charAt(7) + estado.charAt(5);
+				hijosGenerados.add(estadoTemp);
+
+				break;
+			case 6:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(6)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(3) + estado.charAt(7) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(7) + estado.charAt(6) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+				break;
+			case 7:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(7) + estado.charAt(6) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(7)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(4) + estado.charAt(8);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(8) + estado.charAt(7);
+				hijosGenerados.add(estadoTemp);
+				break;
+			case 8:
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(5) + estado.charAt(6) + estado.charAt(8) + estado.charAt(7);
+				hijosGenerados.add(estadoTemp);
+
+				estadoTemp = "" + estado.charAt(0) + estado.charAt(1) + estado.charAt(2) + estado.charAt(3)
+						+ estado.charAt(4)
+						+ estado.charAt(8) + estado.charAt(6) + estado.charAt(7) + estado.charAt(5);
+				hijosGenerados.add(estadoTemp);
+				break;
+		}
+
+		return hijosGenerados;
+	}
+
+	public void imprimeSolucion(Nodo raiz,Nodo NodoActual)// Parametros????
+	{
+		/*Nodo padre = NodoActual;
+		String solP="";
+		do{
+			padre=padre.getPadre();
+			solP=padre.getEstado() + solP;
+		}while(padre != raiz);
+	
+		System.out.println(solP);
 		*/
-            case 0:
-      
-            	estadoTemp=""+estado.charAt(1)+estado.charAt(0)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(3)+estado.charAt(1)+estado.charAt(2)+estado.charAt(0)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-
-               
-                break;
-            case 1:
-            	estadoTemp=""+estado.charAt(1)+estado.charAt(0)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(2)+estado.charAt(1)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(4)+estado.charAt(2)+estado.charAt(3)+estado.charAt(1)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            
-                break;
-            case 2:
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(2)+estado.charAt(1)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(5)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(2)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	
-            	break;
-            case 3:
-            	estadoTemp=""+estado.charAt(3)+estado.charAt(1)+estado.charAt(2)+estado.charAt(0)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(4)+estado.charAt(3)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(6)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(3)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	break;
-            case 4: 
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(4)+estado.charAt(2)+estado.charAt(3)+estado.charAt(1)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(4)+estado.charAt(3)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(5)
-            	+estado.charAt(4)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(7)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(4)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-
-            	break;
-            case 5:
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(5)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(2)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(5)
-            	+estado.charAt(4)+estado.charAt(6)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(8)+estado.charAt(6)+estado.charAt(7)+estado.charAt(5);
-            	hijosGenerados.add(estadoTemp);
-
-            	break;
-            case 6:
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(6)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(3)+estado.charAt(7)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(7)+estado.charAt(6)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	break;
-            case 7:
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(7)+estado.charAt(6)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(7)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(4)+estado.charAt(8);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(8)+estado.charAt(7);
-            	hijosGenerados.add(estadoTemp);
-            	break;
-            case 8:
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(5)+estado.charAt(6)+estado.charAt(8)+estado.charAt(7);
-            	hijosGenerados.add(estadoTemp);
-            	
-            	estadoTemp=""+estado.charAt(0)+estado.charAt(1)+estado.charAt(2)+estado.charAt(3)+estado.charAt(4)
-            	+estado.charAt(8)+estado.charAt(6)+estado.charAt(7)+estado.charAt(5);
-            	hijosGenerados.add(estadoTemp);
-            	break;
-       }
-        
-        
-        return hijosGenerados;
-    }
-	
-	  
-    public void imprimeSolucion()//Parametros????
-    {
-		/*String cadena = this.getEstado();
-		
-
-			System.out.println(cadena.substring(0,3 ));
-			System.out.println(cadena.substring(3,6 ));
-			System.out.println(cadena.substring(6,9 ));
-			System.out.println("------");   */
-
-			/*System.out.println("Prueba");
-			for(int i=0;i<padre.getEstado().length();i++){
-				System.out.println(i);
-				
-			}*/
-		
-
-
-    }
-	
+	}
 }
