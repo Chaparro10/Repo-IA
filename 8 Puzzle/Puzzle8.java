@@ -11,8 +11,8 @@ public class Puzzle8 {
         
 
         // Ejecuta la busqueda
-        //a.busquedaPorAnchura();
-        a.busquedaPorProfundidad();
+        a.busquedaPorAnchuraconHeuristica1();
+        //a.busquedaPorProfundidad();
 
 
 

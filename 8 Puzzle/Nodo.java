@@ -2,11 +2,13 @@ package puzzle8;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Queue;
 
-public class Nodo {
+public class Nodo implements Comparable<Nodo> {
 	private String estado;
 	private Collection<Nodo> hijos;
 	Nodo padre;
+	int costo;
 
 	public Nodo(String estado) {
 		this.estado = estado;
@@ -186,6 +188,11 @@ public class Nodo {
 		}
 
 		return hijosGenerados;
+	}
+
+	public int compareTo(Nodo objetivo){
+		return this.costo>objetivo.costo ? 1 :
+		this.costo < objetivo.costo ? -1 : 0 ;
 	}
 
 	public void imprimeSolucion(Nodo raiz,Nodo NodoActual)// Parametros????
