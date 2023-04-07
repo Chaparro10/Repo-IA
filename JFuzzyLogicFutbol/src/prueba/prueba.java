@@ -37,8 +37,8 @@ public class prueba{
 		functionBlock.evaluate();
 
 		// Show output variable's chart
-		Variable result = functionBlock.getVariable("result");
-		JFuzzyChart.get().chart(result, result.getDefuzzifier(), true);
+		//Variable result = functionBlock.getVariable("result");
+		//JFuzzyChart.get().chart(result, result.getDefuzzifier(), true);
 		//Gpr.debug("poor[service]: " + functionBlock.getVariable("service").getMembership("poor"));
 
 		// Print ruleSet
